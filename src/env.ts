@@ -2,14 +2,18 @@ import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
 
 export const env = createEnv({
+  /** Server-only variables (never exposed to client) */
+  server: {
+    BETTER_AUTH_SECRET: z.string(),
+    BETTER_AUTH_URL: z.url(),
+    DATABASE_URL: z.url(),
+    GOOGLE_CLIENT_ID: z.string(),
+    GOOGLE_CLIENT_SECRET: z.string(),
+    NODE_ENV: z.enum(['development', 'test', 'production']),
+  },
+
   /** Client-side variables (must start with NEXT_PUBLIC_) */
   client: {},
-
-  onValidationError(issues) {
-    console.error('❌ Invalid environment variables:');
-    console.error(issues);
-    process.exit(1);
-  },
 
   /** Runtime environment mapping This is where you pull from process.env */
   runtimeEnv: {
@@ -21,14 +25,10 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
   },
 
-  /** Server-only variables (never exposed to client) */
-  server: {
-    BETTER_AUTH_SECRET: z.string(),
-    BETTER_AUTH_URL: z.url(),
-    DATABASE_URL: z.url(),
-    GOOGLE_CLIENT_ID: z.string(),
-    GOOGLE_CLIENT_SECRET: z.string(),
-    NODE_ENV: z.enum(['development', 'test', 'production']),
+  onValidationError(issues) {
+    console.error('❌ Invalid environment variables:');
+    console.error(issues);
+    process.exit(1);
   },
 
   skipValidation: process.env.SKIP_ENV_VALIDATION === 'true',
