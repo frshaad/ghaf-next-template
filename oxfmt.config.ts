@@ -20,6 +20,9 @@ const ignorePatterns = [
   '**/yarn.lock',
 
   '**/next-env.d.ts',
+
+  'prisma/generated',
+  'prisma/migrations',
 ] satisfies OxlintConfig['ignorePatterns'];
 
 export default defineConfig({
