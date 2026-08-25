@@ -14,7 +14,9 @@ export const env = createEnv({
   },
 
   /** Client-side variables (must start with NEXT_PUBLIC_) */
-  client: {},
+  client: {
+    NEXT_PUBLIC_APP_URL: z.url(),
+  },
 
   /** Runtime environment mapping This is where you pull from process.env */
   runtimeEnv: {
@@ -25,6 +27,7 @@ export const env = createEnv({
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
     GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
+    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
   },
 
   onValidationError(issues) {
