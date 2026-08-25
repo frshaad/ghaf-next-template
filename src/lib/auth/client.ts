@@ -2,7 +2,7 @@ import { lastLoginMethodClient } from 'better-auth/client/plugins';
 import { nextCookies } from 'better-auth/next-js';
 import { createAuthClient } from 'better-auth/react';
 
-export const { signIn, signUp, signOut, useSession, getSession } = createAuthClient({
+export const authClient = createAuthClient({
   emailAndPassword: {
     enabled: true,
   },
