@@ -155,9 +155,21 @@ export default defineConfig({
     // --- React ---------------------------------------
     'react/no-unstable-nested-components': 'error',
     'react/rules-of-hooks': 'error',
-    'react/react-compiler': 'error',
     'react/no-array-index-key': 'error',
     'react/jsx-no-constructed-context-values': 'warn',
+
+    // --- React Compiler -------------------------------
+    'react/error-boundaries': 'error',
+    'react/immutability': 'error',
+    'react/incompatible-library': 'error',
+    'react/preserve-manual-memoization': 'error',
+    'react/purity': 'error',
+    'react/refs': 'error',
+    'react/set-state-in-effect': 'error',
+    'react/set-state-in-render': 'error',
+    'react/static-components': 'error',
+    'react/use-memo': 'error',
+    'react/unsupported-syntax': 'error',
 
     // --- Unicorn ---------------------------------------
     'unicorn/error-message': 'error',
