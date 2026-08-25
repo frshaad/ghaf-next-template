@@ -9,11 +9,9 @@ import { getQueryClient } from '@/lib/query-client';
 import type { PropsWithRequiredChildren } from '@/types/react';
 
 export function Providers({ children }: PropsWithRequiredChildren) {
-  const queryClient = getQueryClient();
-
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-      <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={getQueryClient()}>
         {children}
         <Toaster />
         <ReactQueryDevtools />
